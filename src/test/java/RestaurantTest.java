@@ -38,4 +38,57 @@ public class RestaurantTest {
     Restaurant restaurant = new Restaurant("Joe's Pizza", "Italian", true, "cheap");
     assertEquals("cheap", restaurant.getPriceRange());
   }
+
+  @Test
+  public void equals_returnsTrueIfAttributesAreTheSame() {
+    Restaurant restaurant = new Restaurant("Joe's Pizza", "Italian", true, "cheap");
+    Restaurant restaurantTwo = new Restaurant("Joe's Pizza", "Italian", true, "cheap");
+    assertTrue(restaurant.equals(restaurantTwo));
+  }
+
+  @Test
+  public void equals_returnsFalseIfRestaurantsAreDifferent() {
+    Restaurant restaurant = new Restaurant("Joe's Pizza", "Italian", true, "cheap");
+    Restaurant restaurantTwo = new Restaurant("Joe's Subs", "Italian", true, "cheap");
+    assertTrue(!(restaurant.equals(restaurantTwo)));
+  }
+
+  @Test
+  public void all_returnsAllInstancesOfRestaurant_true() {
+    Restaurant restaurant = new Restaurant("Joe's Pizza", "Italian", true, "cheap");
+    Restaurant restaurantTwo = new Restaurant("Joe's Subs", "Italian", true, "cheap");
+    restaurant.save();
+    restaurantTwo.save();
+    assertEquals(true, Restaurant.all().get(0).equals(restaurant));
+    assertEquals(true, Restaurant.all().get(1).equals(restaurantTwo));
+  }
+
+  @Test
+  public void save_savesRestaurantToDatabase() {
+    Restaurant restaurant = new Restaurant("Joe's Pizza", "Italian", true, "cheap");
+    restaurant.save();
+    assertTrue(Restaurant.all().get(0).equals(restaurant));
+  }
+
+  @Test
+  public void save_assignsIdToRestaurant() {
+    Restaurant restaurant = new Restaurant("Joe's Pizza", "Italian", true, "cheap");
+    restaurant.save();
+    assertEquals(true, restaurant.getId() > 0);
+  }
+
+  @Test
+  public void find_returnsRestaurantWithSameId_restaurantTwo() {
+    Restaurant restaurant = new Restaurant("Joe's Pizza", "Italian", true, "cheap");
+    Restaurant restaurantTwo = new Restaurant("Joe's Subs", "Italian", true, "medium");
+    restaurant.save();
+    restaurantTwo.save();
+    assertEquals(Restaurant.find(restaurantTwo.getId()), restaurantTwo);
+  }
+
+  // @Test 
+  // public void getReviews_retrievesAndReturnsAllReviewsFromDatabase_reviewList() {
+  //   Restaurant restaurant = new Restaurant ("Joe's Pizza", "Italian", true, "cheap");
+  //
+  // }
 }
