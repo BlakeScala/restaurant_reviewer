@@ -86,9 +86,16 @@ public class RestaurantTest {
     assertEquals(Restaurant.find(restaurantTwo.getId()), restaurantTwo);
   }
 
-  // @Test 
-  // public void getReviews_retrievesAndReturnsAllReviewsFromDatabase_reviewList() {
-  //   Restaurant restaurant = new Restaurant ("Joe's Pizza", "Italian", true, "cheap");
-  //
-  // }
+  @Test
+  public void getReviews_retrievesAndReturnsAllReviewsFromDatabase_reviewList() {
+    Restaurant restaurant = new Restaurant ("Joe's Pizza", "Italian", true, "cheap");
+    restaurant.save();
+    Review myReview = new Review("great place", "www.google.com/1223433", 5, restaurant.getId());
+    myReview.save();
+    Review myReviewTwo = new Review("sucked badly", "www.google.com/392829", 3, restaurant.getId());
+    myReviewTwo.save();
+    Review[] reviews = new Review[] {myReview, myReviewTwo};
+    assertEquals(true, myReview instanceof Review);
+    // assertTrue(restaurant.getReviews().containsAll(Arrays.asList(reviews)));
+  }
 }
