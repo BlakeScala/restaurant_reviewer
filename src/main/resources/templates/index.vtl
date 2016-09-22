@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h1 id="title">Kelp<h1>
+  <p id="subtitle">Restaurant Reviewer</p>
+  <form action="/add-restaurant">
+    <button id="add-restaurant" type="submit" class="btn">Add Restaurant</button>
+  </form>
+</div>
+
+#foreach ($restaurant in $restaurants)
+  <h3><a href="/restaurant/$restaurant.getId()">$restaurant.getName()</a></h3>
+  <ul>
+    <li>$restaurant.getType(), $restaurant.getPriceRange()</li>
+    #if ($restaurant.getDelivery() == true)
+      <li>Delivers!</li>
+    #else
+      <li>Does not deliver.</li>
+    #end
+  </ul>
+#end

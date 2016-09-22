@@ -1,0 +1,15 @@
+<h1>$restaurant.getName() Reviews:</h1>
+
+#foreach ($review in $reviews)
+  <ul>
+    <li>$review.getRating()</li>
+    <li>$review.getParagraph()</li>
+    <li>$review.getPictureUrl()</li>
+  </ul>
+#end
+
+<form action="$restaurant.getId()/add-review">
+  <button type="submit" class="btn btn-success">Add Review</button>
+</form>
+
+<a href = "/"><button type="submit" class = "btn btn-danger">go Back to home</button></a>

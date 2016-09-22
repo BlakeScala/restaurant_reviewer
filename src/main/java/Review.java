@@ -80,4 +80,12 @@ public class Review {
       return review;
     }
   }
+    // public void delete() {
+    //   try(Connection con = DB.sql2o.open()) {
+    //     String sql = "DELETE FROM restaurants WHERE id = :id;";
+    //     con.createQuery(sql)
+    //     .addParameter("id", id)
+    //     .executeAndUpdate();
+    //   }
+    // }
 }
