@@ -81,7 +81,7 @@ public class App {
       Review review = new Review(paragraph, pictureUrl, rating, restaurantId);
       review.save();
       model.put("template", "templates/restaurant-reviews.vtl");
-      model.put("reviews", Review.all());
+      model.put("reviews", restaurant.getReviews());
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
   }
