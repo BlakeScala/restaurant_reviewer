@@ -6,14 +6,15 @@
   </form>
 </div>
 
-#foreach ($restaurant in $restaurants)
-  <h3><a href="/restaurant/$restaurant.getId()">$restaurant.getName()</a></h3>
-  <ul>
-    <li>$restaurant.getType(), $restaurant.getPriceRange()</li>
-    #if ($restaurant.getDelivery() == true)
-      <li>Delivers!</li>
-    #else
-      <li>Does not deliver.</li>
-    #end
-  </ul>
-#end
+<div class="restaurants">
+  #foreach ($restaurant in $restaurants)
+    <h3><a id="restaurant-links" href="/restaurant/$restaurant.getId()">$restaurant.getName()</a></h3>
+    <p id="restaurant-description">$restaurant.getType(), $restaurant.getPriceRange().toLowerCase() price range,
+      #if ($restaurant.getDelivery() == true)
+        delivers!
+      #else
+        does not deliver.
+      #end
+    </p>
+  #end
+</div>

@@ -3,16 +3,16 @@
 <form action="/" method="post">
   <div class="form-group">
     <label for="name">Restaurant Name</label>
-    <input id="name" name="name" type="text">
+    <input id="name" name="name" type="text" required>
   </div>
   <div class="form-group">
     <label for="type">Type of Cuisine</label>
-    <input id="type" name="type" type="text">
+    <input id="type" name="type" type="text" required>
   </div>
   <div class="form-group">
     <label>Do They Deliver?</label>
     <div class="radio">
-      <input type="radio" name="delivery" value="yes">Yes</label>
+      <input type="radio" name="delivery" value="yes" required>Yes</label>
     </div>
     <div class="radio">
       <input type="radio" name="delivery" value="no">No</label>
@@ -29,4 +29,4 @@
   </div>
   <button type="submit" class="btn">Add Restaurant</button>
 </form>
-  <a href = "/"><button type="submit" class = "btn btn-danger">go Back to home</button></a>
+<a href = "/"><button type="submit" class = "btn btn-danger">Go Back to Home</button></a>

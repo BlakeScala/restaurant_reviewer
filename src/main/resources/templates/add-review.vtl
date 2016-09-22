@@ -1,13 +1,13 @@
 <h1>Reviews for $restaurant.getName()</h1>
 
-<form action="/restaurant/restaurant.getId()" method="post">
+<form action="/restaurant/$restaurant.getId()" method="post">
   <div class="form-group">
     <label for="paragraph">Write your review</label>
-    <input id="paragraph" name="paragraph" type="text">
+    <textarea id="paragraph" name="paragraph" type="text"></textarea>
   </div>
   <div class="form-group">
-    <label for="type">Post the URL of a picture from your visit:</label>
-    <input id="type" name="type" type="text">
+    <label for="pictureUrl">Post the URL of a picture from your visit:</label>
+    <input id="pictureUrl" name="pictureUrl" type="text">
   </div>
   <div class="form-group">
     <label for="rating">Rating</label>
@@ -19,6 +19,6 @@
       <option value="5">5 Stars</option>
     </select>
   </div>
-  <button type="submit" class="btn">Add Restaurant</button>
+  <button type="submit" class="btn">Add Review</button>
 </form>
 <a href = "/"><button type="submit" class = "btn btn-danger">go Back to home</button></a>

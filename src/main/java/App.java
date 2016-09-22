@@ -60,5 +60,29 @@ public class App {
       model.put("template", "templates/add-review.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    post("restaurant/:id/delete", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Restaurant restaurant = Restaurant.find(Integer.parseInt(request.params(":id")));
+      restaurant.delete();
+      model.put("template", "templates/index.vtl");
+      model.put("restaurants", Restaurant.all());
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("restaurant/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Restaurant restaurant = Restaurant.find(Integer.parseInt(request.params(":id")));
+      model.put("restaurant", restaurant);
+      String paragraph = request.queryParams("paragraph");
+      String pictureUrl = request.queryParams("pictureUrl");
+      String rating = request.queryParams("rating");
+      int restaurantId =  restaurant.getId();
+      Review review = new Review(paragraph, pictureUrl, rating, restaurantId);
+      review.save();
+      model.put("template", "templates/restaurant-reviews.vtl");
+      model.put("reviews", Review.all());
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }

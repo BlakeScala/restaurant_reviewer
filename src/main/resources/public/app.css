@@ -15,7 +15,7 @@
 .jumbotron {
   text-align: center;
   background-color: darkred;
-  border-radius: 50;
+  border-radius: 50px !important;
   border: 1px solid black;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -24,4 +24,48 @@
   padding: 5px;
   border: 1px solid black;
   font-size: 22px;
+}
+body {
+  background-color: lightgrey;
+}
+.restaurants {
+  border-radius: 50px;
+  border: 1px solid black;
+  background-color: white;
+  text-align: center;
+}
+#restaurant-links {
+  font-family: serif;
+  color: darkblue;
+  font-size: 28px;
+  font-weight: bold;
+}
+#restaurant-description {
+  font-family: serif;
+  font-size: 16px;
+}
+.reviewPic {
+  width: auto;
+  height: auto;
+  max-width: 250px;
+}
+.reviewrating, .reviewparagraph {
+  color: #3355e5;
+}
+.reviewrating {
+  font-size: 30px;
+  font-family: sans-serif;
+}
+btn {
+  display:inline-block;
+}
+#reviewJumbotron {
+  padding: 50px;
+}
+#reviewTitle {
+  margin-bottom: 30px;
+  font-size: 72px;
+  color: white;
+  font-family: cursive;
+  text-shadow: 0 0 20px black;
 }

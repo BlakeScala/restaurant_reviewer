@@ -6,10 +6,10 @@ public class Review {
   private int id;
   private String paragraph;
   private String pictureUrl;
-  private int rating;
+  private String rating;
   private int restaurantId;
 
-  public Review(String paragraph, String pictureUrl, int rating, int restaurantId) {
+  public Review(String paragraph, String pictureUrl, String rating, int restaurantId) {
     this.paragraph = paragraph;
     this.pictureUrl = pictureUrl;
     this.rating = rating;
@@ -24,7 +24,7 @@ public class Review {
     return pictureUrl;
   }
 
-  public int getRating() {
+  public String getRating() {
     return rating;
   }
 

@@ -1,15 +1,26 @@
-<h1>$restaurant.getName() Reviews:</h1>
+<div id="reviewJumbotron" class= "jumbotron">
+  <h1 id="reviewTitle">$restaurant.getName() Reviews:</h1>
+  <div class="row">
+    <div class="col-md-4">
+      <form action="$restaurant.getId()/delete" method="post">
+        <button type="submit" class="btn btn-danger">Delete Restaurant</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <form action="$restaurant.getId()/add-review">
+        <button type="submit" class="btn btn-success">Add Review</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <a href = "/"><button type="submit" class = "btn btn-warning">Go Back to Home</button></a>
+    </div>
+  </div>
+</div>
 
 #foreach ($review in $reviews)
-  <ul>
-    <li>$review.getRating()</li>
-    <li>$review.getParagraph()</li>
-    <li>$review.getPictureUrl()</li>
-  </ul>
+  <div>
+    <h1 class="reviewrating">$review.getRating()</h1>
+    <p class = "reviewparagraph">$review.getParagraph()</p>
+    <img class="reviewPic" src="$review.getPictureUrl()">
+  </div>
 #end
-
-<form action="$restaurant.getId()/add-review">
-  <button type="submit" class="btn btn-success">Add Review</button>
-</form>
-
-<a href = "/"><button type="submit" class = "btn btn-danger">go Back to home</button></a>
