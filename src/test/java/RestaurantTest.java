@@ -28,7 +28,7 @@ public class RestaurantTest {
   }
 
   @Test
-  public void getDelivery_returnsTypeOfFood_true() {
+  public void getDelivery_returnsDeliveryOrNot_true() {
     Restaurant restaurant = new Restaurant("Joe's Pizza", "Italian", true, "cheap");
     assertEquals(true, restaurant.getDelivery());
   }
@@ -95,7 +95,6 @@ public class RestaurantTest {
     Review myReviewTwo = new Review("sucked badly", "www.google.com/392829", 3, restaurant.getId());
     myReviewTwo.save();
     Review[] reviews = new Review[] {myReview, myReviewTwo};
-    assertEquals(true, myReview instanceof Review);
-    // assertTrue(restaurant.getReviews().containsAll(Arrays.asList(reviews)));
+    assertTrue(restaurant.getReviews().containsAll(Arrays.asList(reviews)));
   }
 }
